@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
+import CategoriesList from "./Components/CategoriesList";
 
 function App() {
   return (
-    <div>
+    <div className='container'>
+      <CategoriesList />
     </div>
   );
 }

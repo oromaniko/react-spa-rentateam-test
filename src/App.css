@@ -1,0 +1,137 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.bg-grey {
+    background-color: #F7F6F5;
+}
+
+.category {
+    margin: auto;
+    padding: 0 96px;
+}
+
+.itemsList {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.item {
+    width: 288px;
+    height: 360px;
+}
+
+.item a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform .3s,-webkit-transform .3s;
+    text-decoration: none;
+    padding: 16px 40px;
+}
+
+.name {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: #9D9D9D;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.price {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    color: #E4002B;
+    font-size: 32px;
+    line-height: 40px;
+    margin-top: 11px;
+}
+
+.img-box {
+    width: 208px;
+    height: 208px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.plus-btn-box {
+    bottom: 16px;
+    position: absolute;
+    right: 16px;
+}
+
+.plus-btn-circle {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: flex-end;
+    padding: 10px 0;
+    position: relative;
+    width: 40px;
+}
+
+.plus-btn {
+    align-items: center;
+    border-radius: 10rem;
+    box-shadow: 0 4px 6px 0 rgb(0 0 0 / 8%);
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    justify-content: center;
+    padding: 14px;
+    position: relative;
+    transition-duration: .3s;
+    transition-property: box-shadow,border-width;
+    transition-timing-function: ease;
+    width: 40px;
+    z-index: 3;
+}
+
+button {
+    text-transform: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    background: none;
+    border: unset;
+    cursor: pointer;
+}
