@@ -3,7 +3,7 @@
 }
 
 .container {
-    width: 1440px;
+    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -20,7 +20,7 @@ section {
 
 .category {
     margin: auto;
-    padding: 0 96px;
+    padding: 0 6.66%;
 }
 
 .itemsList {
@@ -43,11 +43,16 @@ section {
     align-items: center;
     cursor: pointer;
     width: 100%;
+    height: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     transition: transform .3s,-webkit-transform .3s;
     text-decoration: none;
     padding: 16px 40px;
+}
+
+.item a:hover {
+    background-color: #ffffff;
 }
 
 .name {
@@ -60,9 +65,13 @@ section {
     line-height: 32px;
 }
 
+.item a:hover .name {
+    color: #000;
+}
+
 .price {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     justify-content: center;
     width: 100%;
@@ -80,13 +89,31 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
-    box-sizing: border-box;
+}
+
+.img-box > div:first-child {
+    transition: transform 0.3s,-webkit-transform 0.3s;
+    width: 90%;
+    height: 90%;
+    position: relative;
+}
+
+.item a:hover .img-box > div:first-child {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
 }
 
 .img-box img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
 }
+
+
 
 .plus-btn-box {
     bottom: 16px;
@@ -134,4 +161,164 @@ button {
     background: none;
     border: unset;
     cursor: pointer;
+}
+
+.fs-24 {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.nav-box {
+    width: 100%;
+    height: 56px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0 30px;
+    background-color: white;
+    padding: 0 6.66%;
+}
+
+.nav-item {
+    border-bottom: 2px solid transparent;
+    box-sizing: border-box;
+    color: #9D9D9D;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+    padding: 15px 0;
+}
+
+.nav-item:hover {
+    color: #E4002B;
+    border-color: #E4002B;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100; /* this is optional and should be different for every project */
+}
+
+.selector-box {
+    width: 100%;
+    padding: 0 6.66%;
+    background-color: white;
+}
+
+.selector-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.btn-box {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+    line-height: 24px;
+    width: 291px;
+}
+
+.selector-btn {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 12px 17px;
+    border-radius: 4px;
+}
+
+.btn-red {
+    color: white;
+    background-color: #E4002B;
+    border: 1px solid #E4002B;
+}
+
+.btn-grey {
+    color: #9D9D9D;
+    background-color: #EFEFEF;
+    border: 1px solid #efefef;
+}
+
+.address-container {
+    padding-bottom: 63px;
+    padding-top: 47px;
+}
+
+form {
+    display: flex;
+    gap: 43px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+}
+
+form div label {
+    margin-right: 12px;
+}
+
+form div input {
+    height: 42px;
+    width: 210px;
+    background-color: #F7F6F5;
+    border-radius: 4px;
+    border: 1px solid #F7F6F5;
+    padding: 10px 16px;
+}
+
+header {
+    padding-bottom: 137px;
+    width: 100%;
+    padding-right: 6.66%;
+    padding-left: 6.66%;
+    background-color: white;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 16px;
+}
+
+.header-logo div {
+    background-color: #E4002B;
+    width: 14px;
+    height: 17px;
+}
+
+.header-logo div:nth-child(2) {
+    margin: 0 14px;
+}
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.basket {
+    display: flex;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 18px;
+    background-color: #E4002B;
+    color: white;
+    font-size: 20px;
 }
