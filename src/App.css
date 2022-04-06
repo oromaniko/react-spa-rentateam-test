@@ -113,8 +113,6 @@ section {
     max-height: 100%;
 }
 
-
-
 .plus-btn-box {
     bottom: 16px;
     position: absolute;
@@ -133,6 +131,27 @@ section {
     padding: 10px 0;
     position: relative;
     width: 40px;
+}
+
+.plus-min-btn-circle {
+    width: 104px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.plus-min-btn-circle button {
+    position: relative;
+    width: 40px;
+}
+
+.plus-min-btn-circle div {
+    font-size: 20px;
+    padding-top: 5px;
 }
 
 .plus-btn {
@@ -261,6 +280,7 @@ form {
     display: flex;
     gap: 43px;
     justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
 }
 

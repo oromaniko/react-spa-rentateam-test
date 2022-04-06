@@ -6,20 +6,22 @@ only if a certain condition is met. The inner function receives the store method
 */
 import thunk from 'redux-thunk';
 // Import reducers and state type
-import { IBasicState, basicReducer } from './reducers/basReducer';
+import { IBasicState, basicReducer } from './reducers/basketReducer';
 
 // Create an interface for the application state
 export interface IAppState {
-    basicState: IBasicState
+    basketState: IBasicState
 }
 
 // Create the root reducer
 const rootReducer = combineReducers<IAppState>({
-    basicState: basicReducer
+    basketState: basicReducer
 });
+
+export type RootState = ReturnType<typeof rootReducer>
 
 // Create a configure store function of type `IAppState`
 export default function configureStore(): Store<IAppState, any> {
-    const store = createStore(rootReducer, undefined, applyMiddleware(thunk));
+    const store = createStore(rootReducer, applyMiddleware(thunk));
     return store;
 }

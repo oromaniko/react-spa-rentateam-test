@@ -1,4 +1,12 @@
-export const items = [
+export type ProductType = {
+    id: number
+    name: string
+    price: number
+    delivery: boolean
+    img: string
+};
+
+export const items: ProductType[] = [
     {
         id: 1,
         name: 'Чизбургер',
@@ -17,14 +25,14 @@ export const items = [
         id: 3,
         name: 'Гамбургер',
         price: 122,
-        delivery: false,
+        delivery: true,
         img: '/images/Bitmap.png',
     },
     {
         id: 4,
         name: 'Гамбургер',
         price: 100,
-        delivery: false,
+        delivery: true,
         img: '/images/Bitmap.png',
     },
     {
