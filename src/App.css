@@ -92,16 +92,14 @@ section {
 }
 
 .img-box > div:first-child {
-    transition: transform 0.3s,-webkit-transform 0.3s;
-    width: 90%;
-    height: 90%;
+    width: 92%;
+    height: 92%;
     position: relative;
 }
 
 .item a:hover .img-box > div:first-child {
-    width: 100%;
-    height: 100%;
     transition: transform 0.3s;
+    transform: scale(1.12);
 }
 
 .img-box img {

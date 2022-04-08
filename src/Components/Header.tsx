@@ -1,10 +1,11 @@
 import Menu from '../assets/Menu.svg';
 import Basket from '../assets/Basket.png';
-import {useSelector} from "react-redux";
-import {IAppState} from "../store/store";
+import {RootState} from "../store/reducers";
+import {useTypedSelector} from "../hooks/useTypedSelector";
 
 export default function () {
-    const sum = useSelector((state: IAppState) => state.basketState.basketSum)
+    const sum = useTypedSelector((state: RootState) => state.basketState.basketSum);
+
     return (
         <header>
             <div className='header-logo'>

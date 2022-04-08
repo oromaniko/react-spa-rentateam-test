@@ -2,20 +2,21 @@ import Plus from '../assets/Plus.svg';
 import WhitePlus from '../assets/Plus-white.png';
 import Minus from '../assets/Minus.png'
 import {useDispatch} from "react-redux";
-import {BasketActionTypes} from "../store/actions/basketActions";
 import {useState} from "react";
+import {BasketActionTypes} from "../types/basketAction";
+import {useActions} from "../hooks/useActions";
 
 export default function Item ({ product }: any) {
     const { id, name, price, delivery, img } = product;
     const [count, setCount] = useState(0);
-    const dispatch = useDispatch();
+    const {addToBasketAction, removeFromBasketAction} = useActions();
 
     const handleAddToBasket = () => {
-        dispatch({ type: BasketActionTypes.ADD, payload: product })
+        addToBasketAction(product);
     };
 
     const handleDeleteFromBasket = () => {
-        dispatch({ type: BasketActionTypes.DELETE, payload: product })
+        removeFromBasketAction(product);
     }
 
     return (

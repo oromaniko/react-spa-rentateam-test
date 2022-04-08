@@ -1,19 +1,13 @@
 import { Reducer } from 'redux';
-import { BasketActionTypes, BasketActions } from '../actions/basketActions';
-import {ProductType} from "../mydata";
+import {IBasketState, BasketAction, BasketActionTypes} from "../../types/basketAction";
 
-export interface IBasicState {
-    basketSum: number;
-    basketItems: ProductType[]
-}
-
-const initialBasicState: IBasicState = {
+const initialBasketState: IBasketState = {
     basketSum: 0,
     basketItems: [],
 };
 
-export const basicReducer: Reducer<IBasicState, BasketActions> = (
-    state = initialBasicState,
+export const basketReducer: Reducer<IBasketState, BasketAction> = (
+    state = initialBasketState,
     action
 ) => {
     switch (action.type) {
