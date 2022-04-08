@@ -2,16 +2,18 @@ import React from 'react';
 import './App.css';
 import CategoriesList from "./Components/CategoriesList";
 import CategoriesNavList from "./Components/CategoriesNavList";
-import DeliveryOption from "./Components/DeliveryOption";
+import ReceivingOption from "./Components/ReceivingOption";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <div className='container'>
         <Header />
-        <DeliveryOption />
+        <ReceivingOption />
         <CategoriesNavList />
         <CategoriesList />
+        <Footer />
     </div>
   );
 }

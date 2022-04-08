@@ -38,6 +38,11 @@ section {
     height: 360px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .item a {
     display: flex;
     align-items: center;
@@ -47,7 +52,6 @@ section {
     flex-direction: column;
     justify-content: space-between;
     transition: transform .3s,-webkit-transform .3s;
-    text-decoration: none;
     padding: 16px 40px;
 }
 
@@ -195,7 +199,7 @@ nav {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 0 30px;
+    gap: 0 40px;
     background-color: white;
     padding: 0 6.66%;
 }
@@ -339,4 +343,76 @@ header {
     background-color: #E4002B;
     color: white;
     font-size: 20px;
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    padding-right: 6.66%;
+    padding-left: 6.66%;
+    padding-bottom: 63px;
+    background-color: white;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.footer-logo div {
+    background-color: #E4002B;
+    width: 32px;
+    height: 72px;
+}
+
+.topics {
+    padding-top: 81px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.topics ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 23px;
+    font-size: 16px;
+}
+
+.topics li {
+   margin-top: 16px;
+}
+
+.links {
+    width: 100%;
+    margin-top: 120px;
+    position: relative;
+}
+
+.links-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer-circle {
+    background-color: #C4C4C4;
+    width: 227px;
+    height: 227px;
+    border-radius: 120px;
+}
+
+.apps {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
 }
