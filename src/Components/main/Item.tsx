@@ -1,15 +1,21 @@
-import Plus from '../assets/Plus.svg';
-import WhitePlus from '../assets/Plus-white.png';
-import Minus from '../assets/Minus.png'
-import {useDispatch} from "react-redux";
-import {useState} from "react";
-import {BasketActionTypes} from "../types/basketAction";
-import {useActions} from "../hooks/useActions";
+import Plus from '../../assets/Plus.svg';
+import WhitePlus from '../../assets/Plus-white.png';
+import Minus from '../../assets/Minus.png'
+import {useEffect, useState} from "react";
+import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 export default function Item ({ product }: any) {
-    const { id, name, price, delivery, img } = product;
+    const { name, price, img } = product;
     const [count, setCount] = useState(0);
+    const sum = useTypedSelector(state => state.basketState.basketSum);
     const {addToBasketAction, removeFromBasketAction} = useActions();
+
+    useEffect(() => {
+        if (sum === 0) {
+            setCount(0);
+        }
+    }, [sum])
 
     const handleAddToBasket = () => {
         addToBasketAction(product);
@@ -21,7 +27,7 @@ export default function Item ({ product }: any) {
 
     return (
         <div className='item'>
-            <a href='#'>
+            <a href='src/Components/main/Item#'>
                 <div className='img-box'>
                     <div>
                         <img src={img} alt={name}/>

@@ -1,4 +1,4 @@
-import {ProductType} from "../store/mydata";
+import {ProductType} from "./products";
 
 export interface IBasketState {
     basketSum: number;
@@ -8,6 +8,7 @@ export interface IBasketState {
 export enum BasketActionTypes {
     ADD = 'ADD',
     DELETE = 'DELETE',
+    CLEAR = 'CLEAR'
 }
 
 export interface IBasketAddAction {
@@ -20,4 +21,8 @@ export interface IBasketDeleteAction {
     payload: ProductType;
 }
 
-export type BasketAction = IBasketAddAction | IBasketDeleteAction;
+export interface IBasketClearAction {
+    type: BasketActionTypes.CLEAR;
+}
+
+export type BasketAction = IBasketAddAction | IBasketDeleteAction | IBasketClearAction;

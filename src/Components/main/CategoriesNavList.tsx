@@ -1,6 +1,10 @@
-import {categories} from "../store/mydata";
+import {CategoryType} from "../../types/products";
 
-export default function CategoriesNavList () {
+type CategoriesNavListProps = {
+    categories: CategoryType[],
+}
+
+export default function CategoriesNavList ({categories}: CategoriesNavListProps) {
     return (
         <div className='nav-box sticky'>
             <nav>

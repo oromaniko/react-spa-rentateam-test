@@ -7,7 +7,7 @@ import GooglePlay from "../assets/GooglePlay.svg";
 import AppStore from "../assets/AppStore.svg";
 
 
-export default function () {
+export default function Footer () {
     return (
         <footer>
             <div className='footer-logo'>
