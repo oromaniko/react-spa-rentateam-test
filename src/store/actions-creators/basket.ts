@@ -1,6 +1,6 @@
 import { ActionCreator, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import {IBasketState, IBasketAddAction, BasketActionTypes, BasketAction} from "../../types/basketAction";
+import {IBasketState, IBasketAddAction, BasketActionTypes, BasketAction} from "../../types/basket";
 import {ProductType} from "../mydata";
 
 export const basicAction: ActionCreator<ThunkAction<Promise<any>, IBasketState, null, IBasketAddAction>> = () => {
@@ -23,4 +23,8 @@ export const addToBasketAction = (product: ProductType): BasketAction => (
 
 export const removeFromBasketAction = (product: ProductType): BasketAction => (
     { type: BasketActionTypes.DELETE, payload: product }
+);
+
+export const clearBasketAction = (): BasketAction => (
+    { type: BasketActionTypes.CLEAR }
 );

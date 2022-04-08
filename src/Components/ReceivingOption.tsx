@@ -1,21 +1,23 @@
 import {useState} from "react";
 import SelectorButtons from "./SelectorButtons";
+import {useTypedSelector} from "../hooks/useTypedSelector";
 
-export default function DeliveryOption () {
-    const [selector, setSelector] = useState('delivery')
+export default function ReceivingOption () {
+    const receivingOption = useTypedSelector(state => state.receivingState.receivingOption);
+
     return (
         <div className='selector-box'>
             <div className='selector-container'>
                 <div>
-                    {selector === 'delivery' ? (
+                    {receivingOption === 'delivery' ? (
                         <h1>Доставка г. Москва</h1>
                     ) : (
                         <h1>Самовывоз</h1>
                     )}
                 </div>
-                <SelectorButtons selector={selector} setSelector={setSelector} />
+                <SelectorButtons />
             </div>
-            {selector === 'delivery' ? (
+            {receivingOption === 'delivery' ? (
                 <div className='address-container'>
                     <form>
                         <div>
@@ -29,7 +31,7 @@ export default function DeliveryOption () {
                     </form>
                 </div>
             ) : (
-                <div className='address-container'>12345 Москва Улица Дом</div>
+                <div className='address-container'>Москва, Улица Улиц, дом 27</div>
             )}
         </div>
     );

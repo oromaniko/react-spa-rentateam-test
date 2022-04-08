@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import {IBasketState, BasketAction, BasketActionTypes} from "../../types/basketAction";
+import { IBasketState, BasketActionTypes, BasketAction } from '../../types/basket';
 
 const initialBasketState: IBasketState = {
     basketSum: 0,
@@ -23,6 +23,11 @@ export const basketReducer: Reducer<IBasketState, BasketAction> = (
                 ...state,
                 basketSum: state.basketSum - action.payload.price,
                 basketItems: state.basketItems.filter(({ id }) => id !== action.payload.id),
+            };
+        }
+        case BasketActionTypes.CLEAR: {
+            return {
+                ...initialBasketState
             };
         }
         default:

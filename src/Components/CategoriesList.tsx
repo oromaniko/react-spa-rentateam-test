@@ -6,6 +6,9 @@ export default function CategoriesList () {
         <>
             {categories.map(({id, name, products}, i) => {
                 const bg = i % 2 === 0 ? 'bg-grey' : '';
+                if (products.length === 0) {
+                    return null;
+                }
                 return (
                     <section key={id} className={bg} id={name}>
                         <div className='category'>
