@@ -1,17 +1,16 @@
-import Menu from '../assets/Menu.svg';
-import Basket from '../assets/Basket.png';
-import {RootState} from "../store/reducers";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {useActions} from "../hooks/useActions";
+import Menu from '../../assets/Menu.svg';
+import Basket from '../../assets/Basket.png';
+import {RootState} from "../../store/reducers";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useActions";
+import React from "react";
 
 type HeaderProps = {
-    address: {
-        street: string;
-        house: string;
-    }
+    addressStatus: string;
+    setAddressStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function Header({ address: { street, house }}: HeaderProps) {
+export default function Header({addressStatus, setAddressStatus}: HeaderProps) {
     const sum = useTypedSelector((state: RootState) => state.basketState.basketSum);
     const receivingOption = useTypedSelector(state => state.receivingState.receivingOption);
     const {clearBasketAction} = useActions();
@@ -21,8 +20,8 @@ export default function Header({ address: { street, house }}: HeaderProps) {
             alert('Для оформления заказа добавьте, пожалуйста, товары в корзину.')
             return;
         }
-        if (receivingOption === 'delivery' && (!street || !house)) {
-            alert('Необходимо заполнить все поля адреса доставки.')
+        if (receivingOption === 'delivery' && addressStatus !== 'fulfilled') {
+            setAddressStatus('error')
             return;
         }
 

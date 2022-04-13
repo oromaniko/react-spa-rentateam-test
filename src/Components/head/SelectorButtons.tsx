@@ -1,7 +1,7 @@
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {useActions} from "../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useActions";
 
-export default function SelectorButtons () {
+export default function SelectorButtons() {
     const receivingOption = useTypedSelector(state => state.receivingState.receivingOption);
     const {setReceivingOption} = useActions();
 

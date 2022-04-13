@@ -16,14 +16,6 @@ root.render(
     </React.StrictMode>
 );
 
-async function lol () {
-    const res = await fetch('http://localhost:3001/products');
-    console.log(res)
-    const a = await res.text();
-    console.log(a);
-}
-
-lol();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
