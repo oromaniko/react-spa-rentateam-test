@@ -1,17 +1,23 @@
-import React, {useState} from 'react';
-import './App.css';
-import HeadContent from "./Components/head/HeadContent";
-import Footer from "./Components/Footer";
+import React from 'react';
+import HeadContent from "./Components/header/HeadContent";
+import Footer from "./Components/footer/Footer";
 import MainContent from "./Components/main/MainContent";
+import styled from "styled-components";
 
 function App() {
     return (
-        <div className='container'>
+        <Container>
             <HeadContent />
             <MainContent />
             <Footer />
-        </div>
+        </Container>
     );
 }
 
 export default App;
+
+const Container = styled.div`
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+`

@@ -1,4 +1,5 @@
 import {CategoryType} from "../../types/products";
+import styled from "styled-components";
 
 type CategoriesNavListProps = {
     categories: CategoryType[],
@@ -6,12 +7,45 @@ type CategoriesNavListProps = {
 
 export default function CategoriesNavList ({categories}: CategoriesNavListProps) {
     return (
-        <div className='nav-box sticky'>
-            <nav>
+        <StickyContainer>
+            <Nav>
                 {categories.map(({ id, name }) => (
-                    <a key={id} className='nav-item' href={`#${name}`}><span>{name}</span></a>
+                    <NavItem key={id} href={`#${name}`}><span>{name}</span></NavItem>
                 ))}
-            </nav>
-        </div>
+            </Nav>
+        </StickyContainer>
     );
 }
+
+const StickyContainer = styled.div`
+  width: 100%;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+`
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: scroll;
+  gap: 40px;
+  background-color: white;
+  padding: 0 6.66%;
+`
+
+const NavItem = styled.a`
+  border-bottom: 2px solid transparent;
+  box-sizing: border-box;
+  color: #9D9D9D;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  padding: 15px 0;
+  &:hover {
+    color: #E4002B;
+    border-color: #E4002B;
+  }
+`

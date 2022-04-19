@@ -1,72 +1,101 @@
-import Plus from '../../assets/Plus.svg';
-import WhitePlus from '../../assets/Plus-white.png';
-import Minus from '../../assets/Minus.png'
-import {useEffect, useState} from "react";
-import {useActions} from "../../hooks/useActions";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
+import styled from "styled-components";
+import ItemButton from "./ItemButton";
 
 export default function Item ({ product }: any) {
     const { name, price, img } = product;
-    const [count, setCount] = useState(0);
-    const sum = useTypedSelector(state => state.basketState.basketSum);
-    const {addToBasketAction, removeFromBasketAction} = useActions();
-
-    useEffect(() => {
-        if (sum === 0) {
-            setCount(0);
-        }
-    }, [sum])
-
-    const handleAddToBasket = () => {
-        addToBasketAction(product);
-    };
-
-    const handleDeleteFromBasket = () => {
-        removeFromBasketAction(product);
-    }
 
     return (
-        <div className='item'>
-            <a href='src/Components/main/Item#'>
-                <div className='img-box'>
+        <ItemContainer>
+            <LinkWrapper href='#'>
+                <ImageContainer>
                     <div>
                         <img src={img} alt={name}/>
                     </div>
-                    <div className='plus-btn-box'>
-                        {count === 0 ? (
-                            <div className='plus-btn-circle'>
-                                <button className='plus-btn' onClick={(e) => {
-                                    e.preventDefault();
-                                    handleAddToBasket();
-                                    setCount(count + 1)
-                                }}>
-                                    <img src={Plus} alt='plus'/>
-                                </button>
-                            </div>
-                        ) : (
-                            <div className='plus-min-btn-circle'>
-                                <button onClick={(e) => {
-                                    e.preventDefault();
-                                    handleDeleteFromBasket();
-                                    setCount(count - 1);
-                                }}>
-                                    <img src={Minus} alt='minus'/>
-                                </button>
-                                <div>{count}</div>
-                                <button onClick={(e) => {
-                                    e.preventDefault();
-                                    handleAddToBasket();
-                                    setCount(count + 1);
-                                }}>
-                                    <img src={WhitePlus} alt='plus'/>
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                </div>
-                <div className='name'><span>{name}</span></div>
-                <div className='price'><span>{price}</span><span className='fs-24'> ₽</span></div>
-            </a>
-        </div>
+                    <ItemButton product={product}/>
+                </ImageContainer>
+                <Name><span>{name}</span></Name>
+                <Price><span>{price}</span><span> ₽</span></Price>
+            </LinkWrapper>
+        </ItemContainer>
     );
 }
+
+const ItemContainer = styled.div`
+  width: 288px;
+  height: 360px;
+`
+
+const LinkWrapper = styled.a`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .3s,-webkit-transform .3s;
+  padding: 16px 40px;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    background-color: #ffffff;
+    > div:nth-child(2) {
+      color: #000;
+    }
+    > div:first-child > div:first-child {
+      transition: transform 0.3s;
+      transform: scale(1.12);
+    }
+  }
+`
+
+const ImageContainer = styled.div`
+  width: 208px;
+  height: 208px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  > div:first-child {
+    width: 92%;
+    height: 92%;
+    position: relative;
+  }
+  
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
+`
+
+const Name = styled.div`
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  color: #9D9D9D;
+  font-size: 24px;
+  line-height: 32px;
+`
+
+const Price = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  color: #E4002B;
+  font-size: 32px;
+  line-height: 40px;
+  margin-top: 11px;
+  span:last-child {
+    font-size: 24px;
+    line-height: 29px;
+  }
+`

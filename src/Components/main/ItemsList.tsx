@@ -2,6 +2,7 @@ import Item from "./Item";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useEffect, useState} from "react";
 import {ProductType} from "../../types/products";
+import styled from "styled-components";
 
 export default function ItemsList ({ productsId }: any) {
     const receivingOption = useTypedSelector(state => state.receivingState.receivingOption);
@@ -28,10 +29,24 @@ export default function ItemsList ({ productsId }: any) {
         .filter(({ delivery }) => (receivingOption === 'delivery' ? delivery : true));
 
     return (
-        <div className='itemsList'>
-            {currentCategoryProducts.map((item: ProductType) => (
-                <Item key={item.id} product={item}/>
-            ))}
-        </div>
+        <ItemsListWrapper>
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : (
+                currentCategoryProducts.map((item: ProductType) => (
+                    <Item key={item.id} product={item}/>
+                ))
+            )}
+        </ItemsListWrapper>
     );
 }
+
+const ItemsListWrapper = styled.div`
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+`

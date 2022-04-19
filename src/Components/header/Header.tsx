@@ -4,6 +4,7 @@ import {RootState} from "../../store/reducers";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
 import React from "react";
+import styled from "styled-components";
 
 type HeaderProps = {
     addressStatus: string;
@@ -29,19 +30,59 @@ export default function Header({addressStatus, setAddressStatus}: HeaderProps) {
     };
 
     return (
-        <header>
-            <div className='header-logo'>
+        <HeaderWrapper>
+            <LogoWrapper>
                 <div></div>
                 <div></div>
                 <div></div>
-            </div>
-            <div className='header-box'>
+            </LogoWrapper>
+            <HeaderContent>
                 <img src={Menu} alt='menu'/>
-                <a className='basket' onClick={handleClearBasket}>
+                <BasketLink onClick={handleClearBasket}>
                     <div>{sum} ₽</div>
                     <img src={Basket} alt='basket'/>
-                </a>
-            </div>
-        </header>
+                </BasketLink>
+            </HeaderContent>
+        </HeaderWrapper>
     );
 }
+
+const HeaderWrapper = styled.header`
+    padding-bottom: 137px;
+    width: 100%;
+    padding-right: 6.66%;
+    padding-left: 6.66%;
+    background-color: white;
+`
+
+const LogoWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    div {
+        background-color: #E4002B;
+        width: 14px;
+        height: 17px;
+    }
+    div:nth-child(2) {
+        margin: 0 14px;
+    }
+`
+
+const HeaderContent = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+`
+
+const BasketLink = styled.a`
+    display: flex;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 18px;
+    background-color: #E4002B;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+`
