@@ -1,22 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
 
 html {
-  font-size: 32px;
-  font-stretch: condensed;
+    font-size: 32px;
+    font-stretch: condensed;
 }
 
 body {
-  margin: 0;
-  font-family: Barlow Condensed, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: Barlow Condensed, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
-*, :after, :before {
-  box-sizing: border-box;
+*,
+:after,
+:before {
+    box-sizing: border-box;
 }

@@ -76,7 +76,7 @@ export const products = [
         delivery: false,
         img: '/images/chick.png',
     },
-];
+]
 
 export const categories = [
     {
@@ -114,5 +114,4 @@ export const categories = [
         name: 'Напитки',
         products: [],
     },
-];
-
+]

@@ -1,10 +1,12 @@
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useActions} from "../../hooks/useActions";
-import styled from 'styled-components';
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useActions } from '../../hooks/useActions'
+import styled from 'styled-components'
 
 export default function SelectorButtons() {
-    const receivingOption = useTypedSelector(state => state.receivingState.receivingOption);
-    const {setReceivingOption} = useActions();
+    const receivingOption = useTypedSelector(
+        (state) => state.receivingState.receivingOption
+    )
+    const { setReceivingOption } = useActions()
 
     return (
         <ButtonsWrapper>
@@ -21,7 +23,7 @@ export default function SelectorButtons() {
                 <span>Самовывоз</span>
             </Button>
         </ButtonsWrapper>
-    );
+    )
 }
 
 const ButtonsWrapper = styled.div`
@@ -45,8 +47,7 @@ const Button = styled.button<{ option: boolean }>`
     flex-grow: 1;
     padding: 12px 17px;
     border-radius: 4px;
-    color: ${({ option }) => option ? 'white' : '#9D9D9D'};
-    background-color: ${({ option }) => option ? '#E4002B' : '#EFEFEF'};
-    border: 1px solid ${({ option }) => option ? '#E4002B' : '#EFEFEF'};
+    color: ${({ option }) => (option ? 'white' : '#9D9D9D')};
+    background-color: ${({ option }) => (option ? '#E4002B' : '#EFEFEF')};
+    border: 1px solid ${({ option }) => (option ? '#E4002B' : '#EFEFEF')};
 `
-

@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import Topics from "./Topics";
-import Links from "./Links";
+import styled from 'styled-components'
+import Topics from './Topics'
+import Links from './Links'
 
-
-export default function Footer () {
+export default function Footer() {
     return (
         <FooterWrapper>
             <LogoWrapper>
@@ -14,7 +13,7 @@ export default function Footer () {
             <Topics />
             <Links />
         </FooterWrapper>
-    );
+    )
 }
 
 const FooterWrapper = styled.footer`
@@ -31,7 +30,7 @@ const LogoWrapper = styled.div`
     align-items: flex-start;
     gap: 32px;
     div {
-        background-color: #E4002B;
+        background-color: #e4002b;
         width: 32px;
         height: 72px;
     }

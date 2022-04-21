@@ -3,10 +3,10 @@ export interface IReceivingState {
 }
 
 export enum ReceivingActionTypes {
-    SET ='SET',
+    SET = 'SET',
 }
 
 export type ReceivingOptionSetAction = {
-    type: ReceivingActionTypes.SET;
-    payload: string;
+    type: ReceivingActionTypes.SET
+    payload: string
 }
