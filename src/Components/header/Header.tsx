@@ -1,33 +1,50 @@
-import Menu from '../../assets/Menu.svg';
-import Basket from '../../assets/Basket.png';
-import {RootState} from "../../store/reducers";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useActions} from "../../hooks/useActions";
-import React from "react";
-import styled from "styled-components";
+import Menu from '../../assets/Menu.svg'
+import Basket from '../../assets/Basket.png'
+import { RootState } from '../../store/reducers'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useActions } from '../../hooks/useActions'
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
 
 type HeaderProps = {
-    addressStatus: string;
-    setAddressStatus: React.Dispatch<React.SetStateAction<string>>;
+    addressStatus: string
+    setAddressStatus: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function Header({addressStatus, setAddressStatus}: HeaderProps) {
-    const sum = useTypedSelector((state: RootState) => state.basketState.basketSum);
-    const receivingOption = useTypedSelector(state => state.receivingState.receivingOption);
-    const {clearBasketAction} = useActions();
+export default function Header({
+    addressStatus,
+    setAddressStatus,
+}: HeaderProps) {
+    const {
+        basketSum: sum,
+        basketItems: order,
+        orderId,
+    } = useTypedSelector((state: RootState) => state.basketState)
+    const receivingOption = useTypedSelector(
+        (state) => state.receivingState.receivingOption
+    )
+    const { postBasketAction } = useActions()
 
     const handleClearBasket = () => {
         if (sum === 0) {
-            alert('Для оформления заказа добавьте, пожалуйста, товары в корзину.')
-            return;
+            alert(
+                'Для оформления заказа добавьте, пожалуйста, товары в корзину.'
+            )
+            return
         }
         if (receivingOption === 'delivery' && addressStatus !== 'fulfilled') {
             setAddressStatus('error')
-            return;
+            return
         }
 
-        clearBasketAction();
-    };
+        postBasketAction(order)
+    }
+
+    useEffect(() => {
+        if (orderId) {
+            alert(`Номер вашего заказа ${orderId}`)
+        }
+    }, [orderId])
 
     return (
         <HeaderWrapper>
@@ -37,14 +54,14 @@ export default function Header({addressStatus, setAddressStatus}: HeaderProps) {
                 <div></div>
             </LogoWrapper>
             <HeaderContent>
-                <img src={Menu} alt='menu'/>
+                <img src={Menu} alt='menu' />
                 <BasketLink onClick={handleClearBasket}>
                     <div>{sum} ₽</div>
-                    <img src={Basket} alt='basket'/>
+                    <img src={Basket} alt='basket' />
                 </BasketLink>
             </HeaderContent>
         </HeaderWrapper>
-    );
+    )
 }
 
 const HeaderWrapper = styled.header`
@@ -61,7 +78,7 @@ const LogoWrapper = styled.div`
     align-items: flex-start;
     padding-bottom: 16px;
     div {
-        background-color: #E4002B;
+        background-color: #e4002b;
         width: 14px;
         height: 17px;
     }
@@ -81,7 +98,7 @@ const BasketLink = styled.a`
     gap: 6px;
     padding: 6px 10px;
     border-radius: 18px;
-    background-color: #E4002B;
+    background-color: #e4002b;
     color: white;
     font-size: 20px;
     cursor: pointer;

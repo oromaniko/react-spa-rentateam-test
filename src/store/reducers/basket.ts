@@ -1,10 +1,15 @@
-import { Reducer } from 'redux';
-import { IBasketState, BasketActionTypes, BasketAction } from '../../types/basket';
+import { Reducer } from 'redux'
+import {
+    IBasketState,
+    BasketActionTypes,
+    BasketAction,
+} from '../../types/basket'
 
 const initialBasketState: IBasketState = {
     basketSum: 0,
     basketItems: [],
-};
+    orderId: null,
+}
 
 export const basketReducer: Reducer<IBasketState, BasketAction> = (
     state = initialBasketState,
@@ -16,21 +21,24 @@ export const basketReducer: Reducer<IBasketState, BasketAction> = (
                 ...state,
                 basketSum: state.basketSum + action.payload.price,
                 basketItems: [...state.basketItems, action.payload],
-            };
+            }
         }
         case BasketActionTypes.DELETE: {
             return {
                 ...state,
                 basketSum: state.basketSum - action.payload.price,
-                basketItems: state.basketItems.filter(({ id }) => id !== action.payload.id),
-            };
+                basketItems: state.basketItems.filter(
+                    ({ id }) => id !== action.payload.id
+                ),
+            }
         }
-        case BasketActionTypes.CLEAR: {
+        case BasketActionTypes.POST: {
             return {
-                ...initialBasketState
-            };
+                ...initialBasketState,
+                orderId: action.payload,
+            }
         }
         default:
-            return state;
+            return state
     }
-};
+}
