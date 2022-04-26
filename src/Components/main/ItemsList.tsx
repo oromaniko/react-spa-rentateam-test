@@ -15,7 +15,9 @@ export default function ItemsList({ productsId }: any) {
         async function fetchProducts() {
             try {
                 setIsLoading(true)
-                const response = await fetch('http://localhost:3001/products')
+                const response = await fetch(
+                    'https://delivery-server-rentateam.herokuapp.com/products'
+                )
                 const products = await response.json()
                 setProducts(products)
                 setIsLoading(false)

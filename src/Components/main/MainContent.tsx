@@ -10,7 +10,9 @@ export default function MainContent() {
         async function fetchCategories() {
             try {
                 setIsLoading(true)
-                const response = await fetch('http://localhost:3001/categories')
+                const response = await fetch(
+                    'https://delivery-server-rentateam.herokuapp.com/categories'
+                )
                 const categories = await response.json()
                 setCategories(categories)
                 setIsLoading(false)
