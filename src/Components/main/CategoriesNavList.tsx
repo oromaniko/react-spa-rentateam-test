@@ -40,10 +40,10 @@ const Nav = styled.nav`
 `
 
 const NavItem = styled.a`
+    display: inline-block;
     border-bottom: 2px solid transparent;
     box-sizing: border-box;
     color: #9d9d9d;
-    display: inline-block;
     font-size: 18px;
     line-height: 24px;
     text-decoration: none;
