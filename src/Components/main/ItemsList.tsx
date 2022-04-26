@@ -46,11 +46,11 @@ export default function ItemsList({ productsId }: any) {
 }
 
 const ItemsListWrapper = styled.div`
-    margin-top: 32px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 32px;
+    margin-top: 32px;
 `
