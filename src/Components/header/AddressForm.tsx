@@ -55,7 +55,7 @@ export default function AddressForm({
 
 const Form = styled.form`
     display: flex;
-    gap: 43px;
+    gap: 20px 43px;
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;

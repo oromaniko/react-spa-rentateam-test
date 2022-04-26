@@ -28,7 +28,8 @@ export default function Topics() {
 const TopicsWrapper = styled.div`
     padding-top: 81px;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
     justify-content: space-between;
     position: relative;
@@ -45,6 +46,9 @@ const TopicsWrapper = styled.div`
         text-decoration: none;
         color: black;
     }
+
+    @media (max-width: 993px) {
+    }
 `
 
 const Circle = styled.div`
@@ -52,4 +56,8 @@ const Circle = styled.div`
     width: 227px;
     height: 227px;
     border-radius: 120px;
+
+    @media (max-width: 993px) {
+        display: none;
+    }
 `

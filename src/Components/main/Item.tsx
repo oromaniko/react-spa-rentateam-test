@@ -6,7 +6,7 @@ export default function Item({ product }: any) {
 
     return (
         <ItemContainer>
-            <LinkWrapper href='#'>
+            <LinkWrapper href='#' onClick={(e) => e.preventDefault()}>
                 <ImageContainer>
                     <div>
                         <img src={img} alt={name} />

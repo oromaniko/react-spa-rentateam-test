@@ -22,17 +22,19 @@ export const postBasketAction: ActionCreator<
 > = (order) => {
     return async (dispatch: Dispatch) => {
         try {
-            const response = await fetch('http://localhost:3001/basket', {
-                method: 'post',
-                body: order,
-            })
+            const response = await fetch(
+                'https://delivery-server-rentateam.herokuapp.com/basket',
+                {
+                    method: 'post',
+                }
+            )
             const id = await response.json()
             dispatch({
                 type: BasketActionTypes.POST,
                 payload: id.id,
             })
         } catch (err) {
-            console.log(err, 'Произошла ошибка при отправке корзины')
+            console.error(err, 'Произошла ошибка при отправке корзины')
         }
     }
 }

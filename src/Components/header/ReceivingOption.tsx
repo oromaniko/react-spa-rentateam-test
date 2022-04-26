@@ -17,13 +17,11 @@ export default function ReceivingOption(props: AddressProps) {
     return (
         <Container>
             <SelectorWrapper>
-                <div>
-                    {receivingOption === 'delivery' ? (
-                        <h1>Доставка г. Москва</h1>
-                    ) : (
-                        <h1>Самовывоз</h1>
-                    )}
-                </div>
+                {receivingOption === 'delivery' ? (
+                    <h1>Доставка г. Москва</h1>
+                ) : (
+                    <h1>Самовывоз</h1>
+                )}
                 <SelectorButtons />
             </SelectorWrapper>
             <AddressWrapper>
@@ -33,9 +31,7 @@ export default function ReceivingOption(props: AddressProps) {
                         setAddressStatus={props.setAddressStatus}
                     />
                 ) : (
-                    <div className='address-container'>
-                        Москва, Улица Улиц, дом 27
-                    </div>
+                    <Address>Москва, Улица Улиц, дом 27</Address>
                 )}
             </AddressWrapper>
         </Container>
@@ -50,12 +46,29 @@ const Container = styled.div`
 
 const SelectorWrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
     justify-content: space-between;
     align-items: center;
+
     h1 {
         margin: 0;
+    }
+
+    @media (max-width: 1200px) {
+        h1 {
+            padding-top: 10px;
+            font-size: 50px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 40px;
+        }
     }
 `
 
@@ -63,4 +76,8 @@ const AddressWrapper = styled.div`
     padding-bottom: 63px;
     padding-top: 47px;
     position: relative;
+`
+
+const Address = styled.div`
+    height: 42px;
 `
