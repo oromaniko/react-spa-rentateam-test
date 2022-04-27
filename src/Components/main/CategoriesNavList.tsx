@@ -32,7 +32,6 @@ const StickyContainer = styled.div`
     width: 100%;
     height: 56px;
     position: sticky;
-    padding: 0 6.66%;
     top: 0;
     z-index: 100;
 `
@@ -43,6 +42,7 @@ const Nav = styled.nav`
     overflow: scroll;
     gap: 40px;
     background-color: white;
+    padding: 0 6.66%;
 `
 
 const NavItem = styled.a<{ isActive: boolean }>`
