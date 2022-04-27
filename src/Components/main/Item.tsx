@@ -31,17 +31,15 @@ const ItemContainer = styled.div`
 `
 
 const LinkWrapper = styled.a`
-    display: flex;
-    align-items: center;
-    cursor: pointer;
     width: 100%;
     height: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s, -webkit-transform 0.3s;
     padding: 16px 40px;
     text-decoration: none;
     color: black;
+
     &:hover {
         background-color: #ffffff;
         > div:nth-child(2) {
@@ -58,8 +56,6 @@ const ImageContainer = styled.div`
     width: 208px;
     height: 208px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
     position: relative;
 
@@ -80,8 +76,6 @@ const ImageContainer = styled.div`
 `
 
 const Name = styled.div`
-    align-items: center;
-    justify-content: center;
     text-align: center;
     width: 100%;
     color: #9d9d9d;

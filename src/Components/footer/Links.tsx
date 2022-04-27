@@ -48,4 +48,9 @@ const AppsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     gap: 16px;
+    @media (max-width: 993px) {
+        position: relative;
+        justify-content: center;
+        padding: 40px 0;
+    }
 `

@@ -31,8 +31,7 @@ export default function CategoriesList({ categories }: CategoriesListProps) {
 
 const Section = styled.section<{ bg: boolean }>`
     background-color: ${({ bg }) => (bg ? '#F7F6F5' : 'white')};
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px 0;
 `
 const CategoryWrapper = styled.div`
     margin: auto;

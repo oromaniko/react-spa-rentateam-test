@@ -47,7 +47,9 @@ const TopicsWrapper = styled.div`
         color: black;
     }
 
-    @media (max-width: 993px) {
+    @media (max-width: 769px) {
+        flex-direction: column;
+        height: 660px;
     }
 `
 
