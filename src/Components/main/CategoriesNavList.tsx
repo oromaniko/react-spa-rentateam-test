@@ -1,5 +1,6 @@
 import { CategoryType } from '../../types/products'
 import styled from 'styled-components'
+import { useScrollspy } from '../../hooks/useScrollSpy'
 
 type CategoriesNavListProps = {
     categories: CategoryType[]
@@ -8,11 +9,17 @@ type CategoriesNavListProps = {
 export default function CategoriesNavList({
     categories,
 }: CategoriesNavListProps) {
+    const ids = categories.map(({ name }) => name)
+    const activeId = useScrollspy(ids, 430)
     return (
         <StickyContainer>
             <Nav>
                 {categories.map(({ id, name }) => (
-                    <NavItem key={id} href={`#${name}`}>
+                    <NavItem
+                        key={id}
+                        isActive={name === activeId}
+                        href={`#${name}`}
+                    >
                         <span>{name}</span>
                     </NavItem>
                 ))}
@@ -39,11 +46,12 @@ const Nav = styled.nav`
     padding: 0 6.66%;
 `
 
-const NavItem = styled.a`
+const NavItem = styled.a<{ isActive: boolean }>`
     display: inline-block;
-    border-bottom: 2px solid transparent;
     box-sizing: border-box;
-    color: #9d9d9d;
+    border-bottom: 2px solid
+        ${({ isActive }) => (isActive ? '#e4002b' : 'transparent')};
+    color: ${({ isActive }) => (isActive ? '#e4002b' : '#9d9d9d')};
     font-size: 18px;
     line-height: 24px;
     text-decoration: none;
